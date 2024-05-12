@@ -120,6 +120,7 @@ class Fin_wallet:
     def create_new(self) -> None | Record:
         ''' Метод для отображения создения новой записи'''
         os.system('cls' if os.name == 'nt' else 'clear')
+        print("\tВведите поля записи:")
         record_date = input("Введите дату записи yyyy-mm-dd: \t")
         if not self.date_field_validation(record_date, empty_field = False): return     
         cat = input("[Д]оход или [Р]асход: \t\t\t")
@@ -179,7 +180,6 @@ class Fin_wallet:
                     if not self.date_field_validation(record_date=inp): return
                     search_fields.append(inp if inp != '' else None)
                 elif i in (5,):
-                    if not self.category_field_validation(cat=inp): return
                     search_fields.append(inp if inp != '' else None)
                 elif i in (6,7):
                     if not self.amount_field_validation(amount=inp): return
